@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Bias-Judge</title>
+
+		<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,400bold' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.css">
+		<link rel="stylesheet" type="text/css" href="static/css/styles.css" />
+
+		<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script src="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.js"></script>
+		<script src="static/js/tooltips.js"></script>
+	</head>
+	<body>
+		<div id="main">
+			<h1 id="title">Bias-Judge</h1>
+			<div id="description">
+				<div id="summary">
+					Bias-Judge is an online smart tool that analyzes text and looks for potentially biased statements. It highlights the issues, and you can hover over them for more information. <span class="tooltip-text">Bias-Judge is pretty awesome.</span>
+					<div class="tooltip-content">
+						<ul>
+							<li>Possible positive bias towards "Bias-Judge"</li>
+						</ul>
+					</div>
+				</div>
+				<p id="prompt-text">
+					Paste your text below and press submit. An example is filled in if you just want to try it out.
+				</p>
+			</div>
+			<hr>
+			<form id="input-form" action="/result" method="POST">
+				<div>
+					<textarea name="doc" id="textfield">{{ defaultDoc }}</textarea>
+				</div>
+				<div>
+					<input type="submit" id="submit" value="Unbias"/>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

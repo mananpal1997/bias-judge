@@ -1,0 +1,84 @@
+body {
+	background-color: #FFDAB9;
+	font-family: 'Droid Serif', serif;
+	font-size: 12pt;
+	line-height: 150%;
+}
+
+#main {
+	margin: auto;
+	padding: 2em;
+	text-align: center;
+	width: 60%;
+}
+
+#title {
+	color: #B22222;
+	font-size: 400%;
+	font-style: italic;
+	font-weight: bold;
+}
+
+#description {
+	margin: auto;
+	width: 80%;
+}
+
+#prompt-text {
+	margin-top: 1em;
+}
+
+#textfield, #result-box {
+	border: none;
+	font-family: 'Droid Serif', serif;
+	font-size: 12pt;
+	line-height: 150%;
+	min-width: 500px;
+	padding: 0.75em;
+	margin: auto;
+	text-align: left;
+	width: 80%;
+}
+
+#submit {
+	background-color: #FFD700;
+	border: none;
+	color: #FFFFFF;
+	font-family: 'Droid Serif', serif;
+	font-size: 12pt;
+	font-weight: bold;
+	margin-top: 1em;
+	padding: 0.5em 1.5em;
+	transition: .5s;
+}
+
+#submit:hover {
+	background-color: #DC143C;
+}
+
+#result-box {
+	margin-bottom: 2em;
+}
+
+.tooltip-text {
+	color: #DC143C;
+	transition: .5s;
+}
+
+.tooltip-text:hover {
+	background-color: #EDAB80;
+	color: #6D2B00;
+}
+
+.tooltip-content {
+	display: none;
+}
+
+.tooltip-content ul {
+	padding-left: 1.25em;
+}
+
+::selection {
+	background-color: #FFFFFF;
+	color: #FFD700;
+}

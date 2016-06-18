@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Bias-Judge</title>
+
+		<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,400bold' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.css">
+		<link rel="stylesheet" type="text/css" href="static/css/styles.css" />
+
+		<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script src="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.js"></script>
+		<script src="static/js/tooltips.js"></script>
+	</head>
+	<body>
+		<div id="main">
+			<h1 id="title">Bias-Judge</h1>
+			<div id="description">
+				<div id="summary">
+					Bias-Judge is an online smart tool that analyzes text and looks for potentially biased statements. It highlights the issues, and you can hover over them for more information. <span class="tooltip-text">Bias-Judge is pretty awesome.</span>
+					<div class="tooltip-content">
+						<ul>
+							<li>Possible positive bias towards "Unbias"</li>
+						</ul>
+					</div>
+				</div>
+				<p id="prompt-text">
+					Any possible biased statements have been highlighted. Hover over the sentence to see details.
+				</p>
+			</div>
+			<hr>	
+			<div id="result-box">
+				{% for text, annotations in sentences %}
+					{% if annotations %}
+						<span class="tooltip-text">{{ text }}</span>
+						<div class="tooltip-content">
+							<ul>
+								{% for a in annotations %}
+									<li>{{ a }}</li>
+								{% endfor %}
+							</ul>
+						</div>
+					{% else %}
+						{{ text }}
+					{% endif %}
+				{% endfor %}
+			</div>
+
+			<form id="return-form" action="/">
+				<input type="submit" id="submit" value="Start over" />
+			</form>
+		</div>
+	</body>
+</html>
