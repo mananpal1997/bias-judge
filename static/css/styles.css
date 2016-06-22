@@ -32,15 +32,17 @@ body {
 	border: none;
 	font-family: 'Droid Serif', serif;
 	font-size: 12pt;
-	line-height: 150%;
+	line-height: 160%;
 	min-width: 500px;
 	padding: 0.75em;
 	margin: auto;
 	text-align: left;
 	width: 80%;
+	height: auto;
+	overflow-y: hidden;
 }
 
-#submit {
+#unbias,#start-again {
 	background-color: #FFD700;
 	border: none;
 	color: #FFFFFF;
@@ -52,7 +54,7 @@ body {
 	transition: .5s;
 }
 
-#submit:hover {
+#unbias:hover, #start-again {
 	background-color: #DC143C;
 }
 

@@ -1,5 +1,5 @@
 from alchemyapi import AlchemyAPI
-from flask import Flask, request
+from flask import Flask, request, render_template
 import jinja2, json, random, nltk
 from nltk import tokenize
 from unidecode import unidecode
@@ -38,20 +38,23 @@ app = Flask(__name__)
 
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader("templates"))
 
+
 def pprint(jsonData, title = None):
 	pp = (title + "\n" if title else "") + json.dumps(jsonData, indent = 4, separators = (',', ': '))
 	return pp
 
-@app.route("/", methods = ["GET", "POST"])
+
+@app.route("/")
 def get_index():
 	defaultDoc = random.choice(defaultDocs)
 	template = jinja_env.get_template("index.html")
 	return template.render(defaultDoc = defaultDoc)
 
-@app.route("/result", methods = ["POST"])
+
+@app.route("/result", methods=["POST"])
 def get_result():
 	reqDoc = request.form["doc"]
-	
+
 	try:
 		doc = str(reqDoc)
 	except UnicodeEncodeError:
@@ -84,9 +87,7 @@ def get_result():
 
 		sentencesAnnotated = [annotate(s, biasedEntities, biasedKeywords) for s in docSentences]
 
-		template = jinja_env.get_template("result.html")
-
-		return template.render(sentences = sentencesAnnotated, doc = doc)
+		return json.dumps({'status':'OK','doc':doc, 'sentences':sentencesAnnotated})
 	else:
 		return "There was an error!" + pprint("COMBINED", combined)
 
