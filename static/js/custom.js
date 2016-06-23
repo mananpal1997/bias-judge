@@ -105,7 +105,7 @@ $(function(){
 		$('#result-box').html("");
 		$('#result-box').hide();
 		$('#unbias').show();
-		$('#prompt-text').text("Paste your text below and press submit. An example is filled in if you just want to try it out.");
+		$('#prompt-text').text("Paste your text below and press 'Unbias' button. An example is filled in if you just want to try it out.");
 		$('#textfield').removeAttr('style');
 		$("#textfield").each(function () {
 			$(this).css({'height':'auto','overflow-y':'hidden'}).height(this.scrollHeight);
