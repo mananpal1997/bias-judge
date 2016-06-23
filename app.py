@@ -6,11 +6,11 @@ from unidecode import unidecode
 
 nltk.data.path.append("./nltk_data/")
 
-TOPIC_ENTITIES_THRESHOLD = 0.5
+TOPIC_ENTITIES_THRESHOLD = 0.6
 TOPIC_KEYWORDS_THRESHOLD = 0.75
 
-ENTITY_SENTIMENT_THRESHOLD = 0.33
-KEYWORD_SENTIMENT_THRESHOLD = 0.33
+ENTITY_SENTIMENT_THRESHOLD = 0.4
+KEYWORD_SENTIMENT_THRESHOLD = 0.4
 
 defaultDocs = [
 "U.S. stocks finished little changed on Friday, but the Dow and the S&P 500 managed to log their best weekly gains since November, closing the curtain on a bumpy stretch of trading on Wall Street. A rally in the technology and consumer discretionary sectors eased a sharp selloff in the materials sector fueled by the drop in oil prices, while a reading on U.S. consumer inflation came in above economists' expectations. The S&P 500 SPX, +0.00% trimmed early losses to finish less than a point lower at 1,917.78. The materials sector fell the most, down 1.1%, while the consumer-discretionary sector led gainers, up 0.3%, followed by tech, up 0.2%. The index booked a 2.8% weekly gain, the largest weekly advance since Nov. 20.", 
@@ -36,20 +36,10 @@ def annotate(s, entities, keywords):
 
 app = Flask(__name__)
 
-jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader("templates"))
-
-
-def pprint(jsonData, title = None):
-	pp = (title + "\n" if title else "") + json.dumps(jsonData, indent = 4, separators = (',', ': '))
-	return pp
-
-
 @app.route("/")
 def get_index():
 	defaultDoc = random.choice(defaultDocs)
-	template = jinja_env.get_template("index.html")
-	return template.render(defaultDoc = defaultDoc)
-
+	return render_template('index', defaultDoc = defaultDoc)
 
 @app.route("/result", methods=["POST"])
 def get_result():
