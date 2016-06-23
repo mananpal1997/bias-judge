@@ -39,7 +39,7 @@ app = Flask(__name__)
 @app.route("/")
 def get_index():
 	defaultDoc = random.choice(defaultDocs)
-	return render_template('index', defaultDoc = defaultDoc)
+	return render_template('index.html', defaultDoc = defaultDoc)
 
 @app.route("/result", methods=["POST"])
 def get_result():
