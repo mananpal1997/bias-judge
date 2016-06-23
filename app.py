@@ -1,6 +1,6 @@
 from alchemyapi import AlchemyAPI
 from flask import Flask, request, render_template
-import jinja2, json, random, nltk
+import json, random, nltk
 from nltk import tokenize
 from unidecode import unidecode
 
